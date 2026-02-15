@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+unlock-phone ()
+{
+    adb shell dumpsys window | grep -o 'mDreamingLockscreen=true' ||  return 0  && echo "Unlocking..."
+
+    [ -z "$1" ] && echo "Usage: unclock-phone <Pin>" && return
+    echo connecting to "$(adb devices | grep -oP '^[A-Z0-9]+\s')"
+
+    adb shell input keyevent KEYCODE_WAKEUP
+    sleep .3
+    adb shell input swipe 0 500 0 0
+    sleep .3
+    adb shell input text "$1"
+    adb shell input keyevent 66
+}

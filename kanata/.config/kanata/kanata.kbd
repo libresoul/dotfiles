@@ -1,0 +1,6 @@
+;; Hold Caps activates arrows for keys: h j k l
+(defsrc caps h j k l)
+(defalias caps (tap-hold 200 200 caps
+  (layer-while-held arrows)))
+(deflayer base   @caps   h    j    k    l)
+(deflayer arrows _    left  down up right)
