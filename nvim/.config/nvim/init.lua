@@ -61,6 +61,8 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 
 vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format)
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
 
 -- PACKAGES
 vim.pack.add({
@@ -131,13 +133,6 @@ vim.keymap.set("n", "<A-l>", function() harpoon:list():next() end)
 
 -- LSP
 require("mason-lspconfig").setup()
-
-vim.lsp.config('*', {
-    on_attach = function(_, _)
-        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
-        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
-    end
-})
 
 vim.lsp.config('lua_ls', {
     settings = {
