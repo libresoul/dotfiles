@@ -76,8 +76,6 @@ vim.pack.add({
     { src = "https://github.com/windwp/nvim-autopairs" },
     { src = "https://github.com/saghen/blink.cmp" },
     { src = "https://github.com/lambdalisue/vim-suda" },
-    { src = "https://github.com/lambdalisue/vim-suda" },
-    { src = "https://github.com/lambdalisue/vim-suda" },
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     { src = "https://github.com/nvim-flutter/flutter-tools.nvim" },
     { src = "https://github.com/ThePrimeagen/harpoon",           version = "harpoon2" },
