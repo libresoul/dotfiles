@@ -5,7 +5,7 @@ tmux-sessionizer ()
     if [[ $# -eq 1 ]]; then
         selected="$1"
     else
-        selected=$(find ~/personal/ ~/nsbm/ ~/Documents/NSBM/ -type d -not -path '*/node_modules*' -not -path '*/.vscode*' -not -path '*/lib/python*' -not -path '*/.git*' | fzf)
+        selected=$(find ~/personal/ ~/nsbm/ ~/Documents/NSBM/ -type d -not -path '*/node_modules*' -not -path '*/.vscode*' -not -path '*/lib/python*' -not -path '*/.git*' -not -path '*/.next*'  | fzf)
     fi
 
     if [[ -z $selected ]]; then
