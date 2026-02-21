@@ -14,9 +14,12 @@ tmux-sessionizer ()
 
     selected_name=$(basename "$selected" | tr . _)
     tmux_running=$(pgrep tmux)
+    venv=$(find "$selected" -maxdepth 1 -type d -name '.venv')
 
     if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+        [[ -n $venv ]] && source "$selected/.venv/bin/activate"
         tmux new-session -s "$selected_name" -c "$selected"
+        [[ -n $venv ]] && deactivate
         return
     fi
 
