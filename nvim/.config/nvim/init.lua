@@ -59,11 +59,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-
-vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format)
-vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
-vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
-
 -- PACKAGES
 vim.pack.add({
     { src = "https://github.com/vague-theme/vague.nvim" },
@@ -185,6 +180,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         end
     end,
 }) -- An autocommand that formats on save
+
+vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format)
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
 
 -- SNIPPETS
 
