@@ -167,25 +167,6 @@ vim.lsp.config('lua_ls', {
 })
 
 vim.lsp.config('tailwindcss', {
-    settings = {
-        Lua = {
-            runtime = {
-                version = "LuaJIT",
-            },
-            diagnostics = {
-                globals = {
-                    'vim',
-                    'require'
-                },
-            },
-            workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-            },
-            telemetry = {
-                enable = false,
-            },
-        },
-    },
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
