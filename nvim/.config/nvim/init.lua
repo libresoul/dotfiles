@@ -192,13 +192,20 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     callback = function(args)
         local clients = vim.lsp.get_clients({ bufnr = args.buf })
+        local formatters = conform.list_all_formatters()
+
+        if #formatters > 0 then
+            conform.format()
+            return
+        end
+
         if #clients > 0 then
             vim.lsp.buf.format({ bufnr = args.buf })
         end
     end,
 }) -- An autocommand that formats on save
 
-vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format)
+-- vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format)
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
 
