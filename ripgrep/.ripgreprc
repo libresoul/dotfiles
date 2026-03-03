@@ -6,3 +6,4 @@
 --glob=!build/
 --glob=!target/
 --glob=!vendor/
+--glob=!__pycache__/
