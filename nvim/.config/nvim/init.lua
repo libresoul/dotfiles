@@ -169,6 +169,24 @@ vim.lsp.config('lua_ls', {
 vim.lsp.config('tailwindcss', {
 })
 
+vim.lsp.config('ts_ls', {
+    root_dir = function(bufnr, on_dir)
+        local root_markers = { 'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'bun.lockb', 'bun.lock' }
+        root_markers = vim.fn.has('nvim-0.11.3') == 1 and { root_markers, { '.git' } }
+            or vim.list_extend(root_markers, { '.git' })
+
+        -- Only check for deno.json/deno.jsonc, ignore deno.lock
+        local deno_root = vim.fs.root(bufnr, { 'deno.json', 'deno.jsonc' })
+        local project_root = vim.fs.root(bufnr, root_markers)
+
+        if deno_root and (not project_root or #deno_root >= #project_root) then
+            return
+        end
+
+        on_dir(project_root or vim.fn.getcwd())
+    end,
+})
+
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     callback = function(args)
