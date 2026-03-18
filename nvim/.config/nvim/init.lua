@@ -131,7 +131,8 @@ local conform = require("conform")
 
 conform.setup({
     formatters_by_ft = {
-        python = { "black" }
+        python = { "black" },
+        json = { "jq" }
     },
     default_format_opts = {
         lsp_format = "fallback"
