@@ -20,6 +20,7 @@ set -o vi
 bind -m vi-insert 'Control-l: clear-screen'
 
 bind '"\C-f":"tmux-sessionizer\n"'
+bind '"\C-a":"tmux a\n"'
 bind '"\e\r":"xdg-open .\n"'
 
 eval "$(starship init bash)"
