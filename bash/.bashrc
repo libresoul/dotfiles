@@ -30,3 +30,7 @@ eval "$(zoxide init bash)"
 # . /usr/share/autojump/autojump.bash
 . /usr/share/fzf/completion.bash
 . /usr/share/fzf/key-bindings.bash
+
+HISTSIZE=10000
+HISTFILESIZE=20000
+HISTCONTROL=ignoredups:erasedups
