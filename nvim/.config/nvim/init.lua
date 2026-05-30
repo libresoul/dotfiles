@@ -271,6 +271,9 @@ vim.diagnostic.config({
 
 vim.api.nvim_set_keymap('n', '<A-j>', '<cmd>lua vim.diagnostic.jump({count = 1})<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<A-k>', '<cmd>lua vim.diagnostic.jump({count = -1})<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>e', function()
+    vim.diagnostic.open_float({ scope = 'line' })
+end)
 
 -- COLORS
 require("vague").setup({
