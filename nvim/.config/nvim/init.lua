@@ -14,7 +14,7 @@ vim.opt.scrolloff = 8
 vim.o.winborder = "rounded"
 vim.o.termguicolors = true
 
-vim.keymap.set('n', '<leader>pe', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>pe', vim.cmd.Oil)
 vim.keymap.set("n", "<C-j>", "<C-w><C-w>")
 vim.keymap.set("n", "<C-k>", "<C-w><C-p>")
 vim.keymap.set("n", "<C-c>", "<cmd>nohlsearch<CR>")
@@ -24,7 +24,6 @@ vim.keymap.set("i", "<C-a>", "<C-o><S-a>")
 vim.keymap.set("i", "<C-s>", "<C-o><S-i>")
 vim.keymap.set("i", "<C-d>", "<C-o><S-s>")
 vim.keymap.set("t", "<C-q>", "<C-\\><C-n>")
-vim.keymap.set('v', '<leader>pe', ':Explore<CR>')
 vim.keymap.set("n", "<leader>t", vim.cmd.tabnew)
 vim.keymap.set("n", "<A-h>", vim.cmd.tabprev)
 vim.keymap.set("n", "<A-l>", vim.cmd.tabnext)
@@ -74,6 +73,7 @@ vim.pack.add({
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     { src = "https://github.com/nvim-flutter/flutter-tools.nvim" },
     { src = "https://github.com/stevearc/conform.nvim" },
+    { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/ThePrimeagen/harpoon",           version = "harpoon2" },
 })
 
@@ -104,6 +104,21 @@ require('mini.pick').setup({
 vim.keymap.set('n', '<leader>pf', '<cmd>Pick files<CR>')
 vim.keymap.set('n', '<leader>pp', '<cmd>Pick files tool="git"<CR>')
 vim.keymap.set('n', '<leader>pg', '<cmd>Pick grep_live<CR>')
+
+-- oil
+require("oil").setup({
+    columns = {
+        "icon",
+    },
+    -- Buffer-local options to use for oil buffers
+    buf_options = {
+        buflisted = false,
+        bufhidden = "hide",
+    },
+    view_options = {
+        show_hidden = true,
+    },
+})
 
 -- flutter tools
 require("flutter-tools").setup {}
@@ -217,6 +232,9 @@ require("luasnip.loaders.from_vscode").lazy_load()
 -- COMPLETIONS
 
 require("blink.cmp").setup({
+    enabled = function()
+        return vim.bo.filetype ~= 'oil' and vim.bo.buftype ~= 'prompt'
+    end,
     keymap = {
         preset = 'super-tab',
         ['<C-space>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end },
