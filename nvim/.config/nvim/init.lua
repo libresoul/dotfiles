@@ -62,6 +62,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.pack.add({
     { src = "https://github.com/vague-theme/vague.nvim" },
     { src = "https://github.com/nvim-mini/mini.pick" },
+    { src = "https://github.com/nvim-mini/mini.icons" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
@@ -80,6 +81,11 @@ vim.pack.add({
 -- MASON
 
 require("mason").setup()
+
+-- Icons
+require('mini.icons').setup({
+    -- style = 'ascii',
+})
 
 -- Pick
 
