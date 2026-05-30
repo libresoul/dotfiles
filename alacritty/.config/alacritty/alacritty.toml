@@ -7,5 +7,5 @@ padding = { x = 10, y = 10 }
 dynamic_padding = false
 
 [font]
-normal = { family = "JetBrainsMono Nerd Font Mono", style="regular" }
+normal = { family = "JetBrainsMono Nerd Font", style="regular" }
 size = 12.00
