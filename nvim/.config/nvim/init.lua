@@ -27,6 +27,7 @@ vim.keymap.set("t", "<C-q>", "<C-\\><C-n>")
 vim.keymap.set("n", "<leader>t", vim.cmd.tabnew)
 vim.keymap.set("n", "<C-h>", vim.cmd.tabprev)
 vim.keymap.set("n", "<C-l>", vim.cmd.tabnext)
+vim.keymap.set("n", "<leader>g", vim.cmd.Neogit)
 vim.keymap.set("n", "<leader>x", function()
     vim.cmd("split")
     vim.cmd("wincmd j")
@@ -76,6 +77,8 @@ vim.pack.add({
     { src = "https://github.com/stevearc/conform.nvim" },
     { src = "https://github.com/stevearc/oil.nvim" },
     { src = "https://github.com/ThePrimeagen/harpoon",           version = "harpoon2" },
+    { src = "https://github.com/esmuellert/codediff.nvim" },
+    { src = "https://github.com/NeogitOrg/neogit" },
 })
 
 -- MASON
