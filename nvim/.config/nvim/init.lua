@@ -69,7 +69,7 @@ vim.pack.add({
     { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
     { src = "https://github.com/L3MON4D3/LuaSnip" },
     { src = "https://github.com/rafamadriz/friendly-snippets" },
-    { src = "https://github.com/windwp/nvim-autopairs" },
+    { src = "https://github.com/cohama/lexima.vim" },
     { src = "https://github.com/saghen/blink.cmp" },
     { src = "https://github.com/lambdalisue/vim-suda" },
     { src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -300,8 +300,3 @@ require("vague").setup({
 })
 
 vim.cmd("colorscheme vague")
-
--- AUTOPAIRS
-require('nvim-autopairs').setup({
-    disable_filetype = { "TelescopePrompt", "vim" },
-})
