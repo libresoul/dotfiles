@@ -4,7 +4,9 @@ vim.o.relativenumber = true
 vim.o.wrap = false
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.autoindent = true
 vim.opt.smartindent = true
+vim.cmd('filetype indent on')
 vim.opt.expandtab = true
 vim.o.swapfile = false
 vim.g.mapleader = " "
