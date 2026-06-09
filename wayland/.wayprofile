@@ -5,3 +5,4 @@ export PATH=$PATH:$HOME/fvm/default/bin
 export PATH="$PATH":$HOME/.pub-cache/bin
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 export CHROME_EXECUTABLE=/usr/sbin/helium-browser
+export BIOME_CONFIG_PATH="/home/damindu/.config/biome"

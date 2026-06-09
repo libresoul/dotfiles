@@ -156,7 +156,11 @@ local conform = require("conform")
 conform.setup({
     formatters_by_ft = {
         python = { "black" },
-        json = { "jq" }
+        json = { "jq" },
+        javascript = { "biome" },
+        javascriptreact = { "biome" },
+        typescript = { "biome" },
+        typescriptreact = { "biome" },
     },
     default_format_opts = {
         lsp_format = "fallback"
@@ -277,6 +281,24 @@ vim.api.nvim_set_keymap('n', '<A-k>', '<cmd>lua vim.diagnostic.jump({count = -1}
 vim.keymap.set('n', '<leader>e', function()
     vim.diagnostic.open_float({ scope = 'line' })
 end)
+
+-- NEOGIT
+
+local neogit = require("neogit")
+
+neogit.setup {
+    -- Disable the filewatcher to prevent constant status updates
+    filewatcher = {
+        interval = 1000,
+        enabled = false, -- Set to false to stop monitoring .git/ directory
+    },
+
+    -- Disable auto-refresh to prevent automatic buffer updates
+    auto_refresh = false, -- Manually refresh with your keybinding when needed
+
+    -- Other relevant settings
+    disable_insert_on_commit = false
+}
 
 -- COLORS
 require("vague").setup({
