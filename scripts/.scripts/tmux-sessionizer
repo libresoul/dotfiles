@@ -6,7 +6,7 @@ tmux-sessionizer ()
         selected="$1"
     else
         selected=$(
-            find ~/personal/ ~/nsbm/ ~/Documents/NSBM/ -type d \
+            find ~/personal/ ~/work/ ~/nsbm/ ~/Documents/NSBM/ -type d \
                 -not -path '*/node_modules*' \
                 -not -path '*/.vscode*' \
                 -not -path '*/lib/python*' \
