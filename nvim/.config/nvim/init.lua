@@ -236,6 +236,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 }) -- An autocommand that formats on save
 
 -- vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format)
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
 
